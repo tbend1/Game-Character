@@ -38,4 +38,7 @@ int main()
 	cout << char2 << endl;
 	cout << char3 << endl;
 
+	char1.displayDateTimeOfLastSave();
+	char1.displayTimeSinceLastSave();
+
 }
