@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -17,7 +18,10 @@ class GameCharacter
 		int defensePoints;
 		bool isAlive;
 		void takeDamage(int);
+		time_t lastSaveTime;
+
 	public:
+		//methods
 		GameCharacter(string, int, int, int);
 		string getName() const;
 		int getMaxHealth() const ;
@@ -26,11 +30,15 @@ class GameCharacter
 		int getDefensePoints() const; 
 		bool getIsAlive() const;
 		void attack(GameCharacter&);
+		void displayDateTimeOfLastSave() const;
+		void displayTimeSinceLastSave() const;
+		//operators
 		GameCharacter& operator+(GameCharacter&);
 		bool operator>(GameCharacter&);
 		bool operator<(GameCharacter&);
 		ofstream saveToFile(string fileName);
 		ifstream loadFromFile(string fileName);
+
 
 
 		friend ostream& operator<<(ostream&, GameCharacter&);	

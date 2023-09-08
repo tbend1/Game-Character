@@ -9,6 +9,7 @@ GameCharacter::GameCharacter(string charName, int maxH, int aP, int dP)
 	defensePoints = dP;
 	healthPoints = maxHealth;
 	isAlive = true;
+	lastSaveTime = time(0);
 }
 
 
@@ -102,6 +103,8 @@ ofstream GameCharacter::saveToFile(string fileName)
 	outFile << defensePoints << endl;
 	outFile << isAlive << endl;
 
+	lastSaveTime = time(0);
+
 	return outFile;
 }
 
@@ -116,6 +119,17 @@ ifstream GameCharacter::loadFromFile(string fileName)
 	inFile >> isAlive;
 	
 	return inFile;
+}
+
+void GameCharacter::displayDateTimeOfLastSave() const
+{
+	char* dt = ctime(&lastSaveTime);
+	cout << "Last Saved Time: " << dt << endl;
+}
+	
+void GameCharacter::displayTimeSinceLastSave() const
+{
+	cout << "Time from last saved time: " << difftime(lastSaveTime, time(0)) << endl;
 }
 
 
