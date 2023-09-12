@@ -1,11 +1,11 @@
-math: GameCharacter.o game.o
-	c++ GameCharacter.o game.o -o math
-	
-GameCharacter.o: GameCharacter.cpp
-	c++ -c GameCharacter.cpp
-	
+GameCharacter: game.o GameCharacter.o
+	c++	 game.o	GameCharacter.o	-o	GameCharacter
+
 game.o: game.cpp
-	c++ -c game.cpp
+	c++	-c	game.cpp
+
+GameCharacter.o: GameCharacter.cpp
+	c++	-c	GameCharacter.cpp
 	
 clean:
-	rm *.o math
+	rm	*.o	GameCharacter
