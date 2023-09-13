@@ -129,7 +129,7 @@ void GameCharacter::displayDateTimeOfLastSave() const
 	
 void GameCharacter::displayTimeSinceLastSave() const
 {
-	cout << "Time from last saved time: " << difftime(lastSaveTime, time(0)) << endl;
+	cout << "Time from last saved time: " << difftime(time(0), lastSavedTime) << endl;
 }
 
 

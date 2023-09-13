@@ -38,6 +38,11 @@ int main()
 	cout << char2 << endl;
 	cout << char3 << endl;
 
+	int num1;
+
+	cout << "Delaying, enter a number to continue" << endl;
+	cin >> num1;
+
 	char1.displayDateTimeOfLastSave();
 	char1.displayTimeSinceLastSave();
 
